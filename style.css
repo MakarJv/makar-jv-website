@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.logo-site {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-site img {
+    width: 70px;
+    height: 70px;
+}
+.container {
+    width: 350px;
+    height: auto;
+    padding: 10px 20px;
+    background-color: rgba(0,255,255,0.2);
+    border-radius: 25px;
+}
+.container ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container ul li {
+    margin: 10px 5px;
+    padding: 0 5px 0 15px;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    list-style: none;
+    transition: 0.3s;
+}
+.container ul li:hover {
+    scale: 1.04;
+    background-color: rgba(255,255,255,0.5);
+}
+.container ul li a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: rgba(255,255,255,5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.container ul li:nth-child(1) a img {
+    width: 60px;
+    height: 60px;
+    margin-right: -5px;
+}
+.container ul li:nth-child(2) a img {
+    width: 60px;
+    height: 60px;
+    margin-right: -5px;
+}
+.container ul li:nth-child(3) a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+.container ul li:nth-child(4) a img {
+    width: 70px;
+    height: 70px;
+    margin-right: -10px;
+}
+.container ul li:nth-child(5) a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+.container ul li:nth-child(6) a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
