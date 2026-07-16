@@ -1,81 +1,85 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <!-- Основные мета-теги -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Описание для SEO (опционально) -->
     <meta name="description" content="Страница со ссылками на социальные сети Makar_Jv — VK, GitHub, Telegram, Instagram и почта">
     <meta name="author" content="Makar_Jv">
 
-    <!-- Подключение стилей -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- Заголовок и иконка -->
     <title>Makar_Jv | Социальные сети</title>
     <link rel="icon" href="img/logo.PNG" sizes="any">
 </head>
 <body>
 
-<!-- ========== ЛОГОТИП ========== -->
-<div class="logo-site" aria-label="Логотип">
-    <img src="img/logo.PNG" alt="Логотип Makar_Jv">
-</div>
+<main class="page">
+    <div class="profile-card">
+        <header class="profile-header">
+            <div class="avatar-wrap">
+                <img class="avatar" src="img/logo.PNG" alt="Аватар Makar_Jv">
+            </div>
+            <h1 class="profile-name">Makar_Jv</h1>
+            <p class="profile-tagline">Социальные сети и контакты</p>
+        </header>
 
-<!-- ========== ОСНОВНОЙ КОНТЕЙНЕР СО ССЫЛКАМИ ========== -->
-<div class="container">
-    <ul>
-        <!-- VK -->
-        <li>
-            <a href="https://vk.com/makar_jv" target="_blank" rel="noopener noreferrer">
-                VK
-                <img src="img/vk-logo.png" alt="VK логотип">
+        <nav class="links" aria-label="Ссылки на социальные сети">
+            <a class="link-card link-card--vk" href="https://vk.com/makar_jv" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/vk-logo.png" alt="">
+                </span>
+                <span class="link-card__label">VK</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
 
-        <!-- GitHub -->
-        <li>
-            <a href="https://github.com/MakarJv" target="_blank" rel="noopener noreferrer">
-                GitHub
-                <img src="img/github-logo.png" alt="GitHub логотип">
+            <a class="link-card link-card--github" href="https://github.com/MakarJv" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/github-logo.png" alt="">
+                </span>
+                <span class="link-card__label">GitHub</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
 
-        <!-- Telegram -->
-        <li>
-            <a href="https://t.me/makar_jv" target="_blank" rel="noopener noreferrer">
-                Telegram
-                <img src="img/telegram-logo.png" alt="Telegram логотип">
+            <a class="link-card link-card--telegram" href="https://t.me/makar_jv" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/telegram-logo.png" alt="">
+                </span>
+                <span class="link-card__label">Telegram</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
 
-        <!-- Instagram -->
-        <li>
-            <a href="https://instagram.com/makar_jv" target="_blank" rel="noopener noreferrer">
-                Instagram
-                <img src="img/instagram-logo.png" alt="Instagram логотип">
+            <a class="link-card link-card--instagram" href="https://instagram.com/makar_jv" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/instagram-logo.png" alt="">
+                </span>
+                <span class="link-card__label">Instagram</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
 
-        <!-- Почта Mail.ru -->
-        <li>
-            <a href="https://e.mail.ru/compose?to=makar_igor1997@mail.ru" target="_blank" rel="noopener noreferrer">
-                Mail.ru
-                <img src="img/mail-logo.png" alt="Mail.ru логотип">
+            <a class="link-card link-card--mail" href="https://e.mail.ru/compose?to=makar_igor1997@mail.ru" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/mail-logo.png" alt="">
+                </span>
+                <span class="link-card__label">Mail.ru</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
 
-        <!-- Почта Gmail -->
-        <li>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=makarenkocool@gmail.com" target="_blank" rel="noopener noreferrer">
-                Gmail
-                <img src="img/gmail-logo.png" alt="Gmail логотип">
+            <a class="link-card link-card--gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=makarenkocool@gmail.com" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__icon">
+                    <img src="img/gmail-logo.png" alt="">
+                </span>
+                <span class="link-card__label">Gmail</span>
+                <span class="link-card__arrow" aria-hidden="true">→</span>
             </a>
-        </li>
-    </ul>
-</div>
+        </nav>
+    </div>
+</main>
 
 </body>
 </html>

@@ -1,204 +1,375 @@
+/* ========== VARIABLES ========== */
+:root {
+    --color-text: #f5f7ff;
+    --color-text-muted: rgba(245, 247, 255, 0.72);
+    --color-card: rgba(12, 16, 28, 0.55);
+    --color-card-border: rgba(255, 255, 255, 0.14);
+    --color-link-bg: rgba(255, 255, 255, 0.07);
+    --color-link-border: rgba(255, 255, 255, 0.1);
+    --shadow-card: 0 24px 64px rgba(0, 0, 0, 0.35);
+    --shadow-link: 0 8px 24px rgba(0, 0, 0, 0.18);
+    --radius-card: 28px;
+    --radius-link: 18px;
+    --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ========== RESET & BASE ========== */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ========== BODY & BACKGROUND ========== */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    width: 100%;
+    min-height: 100vh;
+    font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--color-text);
+    background: #0a0e1a url("img/background.jpg") center / cover no-repeat fixed;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88, 120, 255, 0.18), transparent 60%),
+        linear-gradient(180deg, rgba(8, 12, 24, 0.55) 0%, rgba(8, 12, 24, 0.82) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ========== PAGE LAYOUT ========== */
+.page {
+    position: relative;
+    z-index: 1;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("img/background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
+    padding: 32px 20px;
 }
 
-/* ========== LOGO ========== */
-.logo-site {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
+/* ========== PROFILE CARD ========== */
+.profile-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 36px 28px 28px;
+    background: var(--color-card);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: var(--shadow-card);
+    animation: card-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.logo-site img {
-    width: 60px;
-    height: 60px;
+@keyframes card-in {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ========== PROFILE HEADER ========== */
+.profile-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.avatar-wrap {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 18px;
+}
+
+.avatar-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6b8cff, #a855f7, #ec4899);
+    opacity: 0.85;
+    z-index: 0;
+}
+
+.avatar {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(12, 16, 28, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* ========== MAIN CONTAINER ========== */
-.container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: rgba(0, 255, 255, 0.15);
-    backdrop-filter: blur(2px);
-    border-radius: 28px;
-    margin: 80px 0 20px 0;
+.profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
 }
 
-/* ========== LINKS LIST ========== */
-.container ul {
+.profile-tagline {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+}
+
+/* ========== LINKS ========== */
+.links {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.container ul li {
-    width: 100%;
-    height: 56px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    list-style: none;
-    transition: all 0.25s ease;
-}
-
-.container ul li:hover {
-    transform: scale(1.02);
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.container ul li a {
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: white;
+.link-card {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 0 16px 0 20px;
+    gap: 14px;
+    min-height: 60px;
+    padding: 12px 18px 12px 14px;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-link-bg);
+    border: 1px solid var(--color-link-border);
+    border-radius: var(--radius-link);
+    overflow: hidden;
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    animation: link-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ========== ICON SIZES ========== */
-.container ul li a img {
+.link-card:nth-child(1) { animation-delay: 0.08s; }
+.link-card:nth-child(2) { animation-delay: 0.14s; }
+.link-card:nth-child(3) { animation-delay: 0.20s; }
+.link-card:nth-child(4) { animation-delay: 0.26s; }
+.link-card:nth-child(5) { animation-delay: 0.32s; }
+.link-card:nth-child(6) { animation-delay: 0.38s; }
+
+@keyframes link-in {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.link-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: 0;
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-link);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.link-card:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.link-card:active {
+    transform: translateY(0);
+}
+
+.link-card__icon,
+.link-card__label,
+.link-card__arrow {
+    position: relative;
+    z-index: 1;
+}
+
+.link-card__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background var(--transition);
+}
+
+.link-card__icon img {
+    width: 24px;
+    height: 24px;
     object-fit: contain;
 }
 
-.container ul li:nth-child(1) a img {
-    width: 60px;
-    height: 60px;
-    margin-right: -5px;
+.link-card__label {
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
-.container ul li:nth-child(2) a img {
-    width: 60px;
-    height: 60px;
-    margin-right: -5px;
+.link-card__arrow {
+    font-size: 1.1rem;
+    opacity: 0.45;
+    transition:
+        transform var(--transition),
+        opacity var(--transition);
 }
 
-.container ul li:nth-child(3) a img {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
+.link-card:hover .link-card__arrow,
+.link-card:focus-visible .link-card__arrow {
+    transform: translateX(4px);
+    opacity: 0.9;
 }
 
-.container ul li:nth-child(4) a img {
-    width: 70px;
-    height: 70px;
-    margin-right: -10px;
+/* ========== BRAND ACCENTS ========== */
+.link-card--vk::before { background: linear-gradient(135deg, rgba(0, 119, 255, 0.35), rgba(0, 119, 255, 0.08)); }
+.link-card--github::before { background: linear-gradient(135deg, rgba(240, 246, 252, 0.18), rgba(36, 41, 47, 0.25)); }
+.link-card--telegram::before { background: linear-gradient(135deg, rgba(38, 165, 228, 0.35), rgba(38, 165, 228, 0.08)); }
+.link-card--instagram::before { background: linear-gradient(135deg, rgba(225, 48, 108, 0.35), rgba(131, 58, 180, 0.2)); }
+.link-card--mail::before { background: linear-gradient(135deg, rgba(0, 95, 249, 0.35), rgba(0, 95, 249, 0.08)); }
+.link-card--gmail::before { background: linear-gradient(135deg, rgba(234, 67, 53, 0.35), rgba(234, 67, 53, 0.08)); }
+
+.link-card--vk:hover::before,
+.link-card--vk:focus-visible::before,
+.link-card--github:hover::before,
+.link-card--github:focus-visible::before,
+.link-card--telegram:hover::before,
+.link-card--telegram:focus-visible::before,
+.link-card--instagram:hover::before,
+.link-card--instagram:focus-visible::before,
+.link-card--mail:hover::before,
+.link-card--mail:focus-visible::before,
+.link-card--gmail:hover::before,
+.link-card--gmail:focus-visible::before {
+    opacity: 1;
 }
 
-.container ul li:nth-child(5) a img {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
-}
+.link-card--vk:hover .link-card__icon { background: rgba(0, 119, 255, 0.25); }
+.link-card--github:hover .link-card__icon { background: rgba(255, 255, 255, 0.18); }
+.link-card--telegram:hover .link-card__icon { background: rgba(38, 165, 228, 0.25); }
+.link-card--instagram:hover .link-card__icon { background: rgba(225, 48, 108, 0.22); }
+.link-card--mail:hover .link-card__icon { background: rgba(0, 95, 249, 0.25); }
+.link-card--gmail:hover .link-card__icon { background: rgba(234, 67, 53, 0.25); }
 
-.container ul li:nth-child(6) a img {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
-}
-
-/* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
-
-/* Маленькие телефоны (iPhone SE, Galaxy, до 480px) */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 480px) {
-    .logo-site img {
-        width: 50px;
-        height: 50px;
+    .page {
+        padding: 24px 16px;
     }
 
-    .container {
-        max-width: 94%;
+    .profile-card {
+        padding: 28px 20px 22px;
+        border-radius: 24px;
+    }
+
+    .avatar-wrap {
+        width: 84px;
+        height: 84px;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+    }
+
+    .profile-tagline {
+        font-size: 0.875rem;
+    }
+
+    .link-card {
+        min-height: 56px;
+        padding: 10px 14px 10px 12px;
+        gap: 12px;
+    }
+
+    .link-card__label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .link-card__label {
+        font-size: 0.925rem;
+    }
+
+    .link-card__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .link-card__icon img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 850px) and (orientation: landscape) {
+    .page {
         padding: 16px;
     }
 
-    .container ul li {
-        height: 52px;
+    .profile-card {
+        max-width: 480px;
+        padding: 20px 24px 18px;
     }
 
-    .container ul li a {
-        font-size: 16px;
-        padding: 0 12px 0 16px;
-    }
-}
-
-/* Очень маленькие телефоны (до 380px) */
-@media (max-width: 380px) {
-    .container ul li a {
-        font-size: 14px;
+    .profile-header {
+        margin-bottom: 16px;
     }
 
-    .container ul li {
-        height: 48px;
-    }
-}
-
-/* Альбомная ориентация на телефонах */
-@media (max-width: 850px) and (orientation: landscape) {
-    body {
-        padding: 10px;
+    .avatar-wrap {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
     }
 
-    .logo-site img {
-        width: 40px;
-        height: 40px;
+    .profile-name {
+        font-size: 1.25rem;
     }
 
-    .container {
-        margin: 60px 0 10px 0;
-        padding: 12px;
+    .profile-tagline {
+        font-size: 0.8rem;
     }
 
-    .container ul {
+    .links {
         gap: 8px;
     }
 
-    .container ul li {
-        height: 46px;
-    }
-
-    .container ul li a {
-        font-size: 14px;
+    .link-card {
+        min-height: 48px;
     }
 }
 
-/* Планшеты (адаптация для больших экранов, но не десктопа) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .container {
-        max-width: 450px;
-    }
-
-    .container ul li {
-        height: 64px;
-    }
-
-    .container ul li a {
-        font-size: 20px;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
